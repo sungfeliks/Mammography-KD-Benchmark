@@ -3,10 +3,6 @@
 An empirical study of output-based and feature-based knowledge distillation for
 compact mammography classifiers across four separately trained datasets.
 
-**Repository setup:** this starter contains documentation and example configuration
-files. The experimental notebooks and reviewed result tables must still be added.
-It is not an executable distribution of the full study yet.
-
 ## Research scope
 
 The study evaluates Hinton-style output distillation and a supervised classification
