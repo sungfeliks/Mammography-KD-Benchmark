@@ -1,0 +1,6 @@
+{
+  "_note": "Documentation template only. Original notebooks do not automatically consume this file.",
+  "research_root": "/content/drive/MyDrive/Research",
+  "datasets_directory": "/content/drive/MyDrive/Research/datasets",
+  "benchmark_output_root": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets"
+}

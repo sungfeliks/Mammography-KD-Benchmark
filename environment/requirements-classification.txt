@@ -1,0 +1,5 @@
+# Core TensorFlow stack recorded in the final classification and profiling runs.
+# This is NOT a complete dependency lock and is not sufficient for all notebooks.
+# Use a compatible Python/Colab runtime and each notebook's setup instructions.
+tensorflow==2.20.0
+tf-keras==2.20.1

@@ -1,0 +1,42 @@
+{
+  "_note": "Overview, not an executable replacement for the locked per-run protocol JSON.",
+  "datasets": [
+    "cbis_ddsm",
+    "cmmd",
+    "inbreast",
+    "mias"
+  ],
+  "teachers": [
+    "vgg16",
+    "densenet121"
+  ],
+  "students": [
+    "mobilenet_v2",
+    "nasnet_mobile"
+  ],
+  "pipelines": [
+    "hinton",
+    "ssid_inspired_feature_kd"
+  ],
+  "training_seed": 42,
+  "split_seed": 2026,
+  "image_size": 512,
+  "batch_size": 8,
+  "precision": "float32",
+  "head_epochs": 5,
+  "finetune_epochs": 25,
+  "early_stopping": false,
+  "head_learning_rate": 0.001,
+  "finetune_learning_rate": 1e-05,
+  "threshold": 0.5,
+  "dropout": 0.2,
+  "hinton": {
+    "temperature": 2.0,
+    "alpha": 0.5
+  },
+  "feature_kd": {
+    "temperature": 2.0,
+    "projector_at_inference": false
+  },
+  "test_status": "previously inspected holdouts; no test-based tuning in final KD pipelines"
+}

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this research software, please cite this repository."
+type: software
+title: "Mammography Knowledge Distillation Benchmark"
+authors:
+  - family-names: Sung
+    given-names: Feliks
+license: MIT
+abstract: >-
+  Empirical evaluation of output- and feature-based knowledge distillation for
+  mammography classification on four separately trained datasets, with
+  representation-dependent complexity diagnostics and student inference profiling.
+keywords:
+  - mammography
+  - knowledge distillation
+  - image classification
+  - dataset complexity
+  - inference efficiency
+# Add the actual repository URL, contributors, version, release date, and DOI
+# only when they are confirmed. This software citation is not a paper citation.
