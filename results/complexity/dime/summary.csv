@@ -1,0 +1,9 @@
+dataset,prior,dime_bounded_mean,dime_bounded_sd,valid_raw_seeds,corrected_folds,seeds,interpretation
+cbis_ddsm,balanced,0.3408552317916724,0.009790576999157715,3,0,3,exploratory representation-dependent estimate; not certified error bound
+cbis_ddsm,natural,0.3322406443313813,0.00823638488006785,3,0,3,exploratory representation-dependent estimate; not certified error bound
+cmmd,balanced,0.3582654695352552,0.011549093767881229,3,0,3,exploratory representation-dependent estimate; not certified error bound
+cmmd,natural,0.2578296216990131,0.0037912434002845513,3,0,3,exploratory representation-dependent estimate; not certified error bound
+inbreast,balanced,0.5,0.0,0,6,3,exploratory representation-dependent estimate; not certified error bound
+inbreast,natural,0.1802575107296137,0.0,0,7,3,exploratory representation-dependent estimate; not certified error bound
+mias,balanced,0.5,0.0,0,5,3,exploratory representation-dependent estimate; not certified error bound
+mias,natural,0.44999999999998863,0.0,0,5,3,exploratory representation-dependent estimate; not certified error bound
