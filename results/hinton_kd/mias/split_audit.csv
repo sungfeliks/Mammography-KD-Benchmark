@@ -1,0 +1,4 @@
+split,images,patients,negative,positive
+train,80,74,44,36
+validation,18,17,10,8
+test,17,17,9,8
