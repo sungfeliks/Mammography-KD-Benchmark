@@ -1,0 +1,67 @@
+{
+  "version": "b06b_v1",
+  "dataset": "cmmd",
+  "seed": 42,
+  "batch": 8,
+  "head_epochs": 5,
+  "finetune_epochs": 25,
+  "head_lr": 0.001,
+  "finetune_lr": 1e-05,
+  "temperature": 2.0,
+  "normalization": "standardize",
+  "epsilon": 1e-05,
+  "calibration_batches": 8,
+  "target_ratio": 0.5,
+  "lambda_min": 0.01,
+  "lambda_max": 10.0,
+  "calibration": "before head, natural train sample, no dropout, shared backbone gradients",
+  "threshold": 0.5,
+  "dropout": 0.2,
+  "rng": "stateless per epoch/batch",
+  "test": false,
+  "selection": "validation macro_f1 then recall; earliest/head on tie",
+  "tensorflow": "2.20.0",
+  "tf_keras": "2.20.1",
+  "source_protocol_sha256": "eb3102fdcfeee6abac3510cce02f95be137883ed0e02704a5d545a3e04a8b5bb",
+  "data_sha256": {
+    "all.csv": "297878542939a8f28375d58cca652cb1e134c53e9ed454f59cb5d61cf409e860",
+    "train.csv": "84c81f2009a3bd64689325756f2692baad37235a20e3b0f2f3d56aeb377cf56b",
+    "validation.csv": "993585b39008385c137ba5817f44a6712bea3ba723b4a084ab1faab912a8e130",
+    "test.csv": "b46a15402ce51ac91feecc36f09b2bd2e33610085f9cd241855b7fafb29a5daf",
+    "images.zip": "f79eee17fd11387dfdb71dba29f59eb86a001a53aca8eb138693c4759ce87440",
+    "crop_audit.csv": "e646f1b7ea3e5cba06e5bcad1ae484a273cdd81e52bd299da7dca08d7c9be72f"
+  },
+  "teacher_sources": {
+    "vgg16": {
+      "folder": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets/b04_ablation_runs_v1/cmmd/87b9956404a1/vgg16/seed_42",
+      "checkpoint": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets/b04_ablation_runs_v1/cmmd/87b9956404a1/vgg16/seed_42/finetune/best/ckpt-7",
+      "config_sha256": "cfaa6fcac7827c68133eed7c7d0bff2b3b83057f3903e104324e72a34779cb3c",
+      "checkpoint_sha256": {
+        "ckpt-7.data-00000-of-00001": "6fa2b03123d5afa22a9d8547e6e272e185e64944574c842e945c15e251066240",
+        "ckpt-7.index": "42da42b33f09b8d249db0d3f12fa4b5caa729ea498d0fd226b9190463fcf91d8"
+      },
+      "model": "vgg16",
+      "teacher_seed": 42,
+      "best_stage": "finetune",
+      "validation_predictions_sha256": "bb525b112106eadc5be160a7c9f7d674edea39cc48b946f8f94edf3a08484fbc",
+      "b04_tensorflow": "2.20.0",
+      "b04_tf_keras": "2.20.1"
+    },
+    "densenet121": {
+      "folder": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets/b04_ablation_runs_v1/cmmd/87b9956404a1/densenet121/seed_42",
+      "checkpoint": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets/b04_ablation_runs_v1/cmmd/87b9956404a1/densenet121/seed_42/finetune/best/ckpt-6",
+      "config_sha256": "d4f9bdaf558cd7ae78b484f8b82134c8a8a0b85f13147badcfe7f721acef3802",
+      "checkpoint_sha256": {
+        "ckpt-6.data-00000-of-00001": "e82e12fb345ffc344d73aea4430d219e67fc71db31009edaeffaff39e5db2744",
+        "ckpt-6.index": "ff80ef058eee80ddafa981de4c683d09a8b7ca14f9ca2ac703bd359498a5d244"
+      },
+      "model": "densenet121",
+      "teacher_seed": 42,
+      "best_stage": "finetune",
+      "validation_predictions_sha256": "e0c0efeb80384d2034d32d7f176d6fc17e178d20992387738342fd139a9aa0d3",
+      "b04_tensorflow": "2.20.0",
+      "b04_tf_keras": "2.20.1"
+    }
+  },
+  "engine_sha256": "1ad07f638580b5ede6b57ee065e2963830db45d4a79fd7d34baead12f61fc487"
+}
