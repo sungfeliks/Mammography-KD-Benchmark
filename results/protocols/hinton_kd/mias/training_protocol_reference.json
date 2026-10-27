@@ -1,0 +1,82 @@
+{
+  "version": "b05b_inbreast_fixed25_v1",
+  "early_stopping": false,
+  "ablation": "disable_early_stopping_only",
+  "dataset": "mias",
+  "training_seed": 42,
+  "teacher_seed": 42,
+  "variant": "full_512",
+  "image_size": 512,
+  "split_seed": 2026,
+  "cohort_sha256": "8137c086bd82ee82b40d72dd084f9f3fa5e889abaf89fc73c4b073050cd1a5dc",
+  "data_sha256": {
+    "all.csv": "726ed8fbe9752d08511397af25525156f521607873b7e4fdfa27f2c7e4da123b",
+    "train.csv": "37cc85949ccda0fc8651e4e211d738fcb66aa00d8705cbc52e0cb49428635df2",
+    "validation.csv": "4c021b0f31d89239654353d95945a12080b54e3ffd4af7615553c21cb803a9ec",
+    "test.csv": "96c6125e88eff13ee2f58e8d7aad5a2a0dd58af72851c1d57b201beefbf4636b",
+    "images.zip": "71217d268e632c293cb1f3bc540f55093f27cebf5724d35a61763d57af81e7a5",
+    "crop_audit.csv": "8a94a49e057ade0779982ba2e764486e27f11ba60d1ce0971e6e13fb5a7b5008"
+  },
+  "preprocessing_source_sha256": "1dcb7ddadfe67fbec607ee1d44b2fea4202003a23310fa2ef36170cf84577962",
+  "batch_size": 8,
+  "head_epochs": 5,
+  "finetune_epochs": 25,
+  "patience": 5,
+  "head_learning_rate": 0.001,
+  "finetune_learning_rate": 1e-05,
+  "temperature": 2.0,
+  "alpha": 0.5,
+  "threshold": 0.5,
+  "weights": "imagenet",
+  "dropout": 0.2,
+  "supervised_weighting": "balanced_train_only",
+  "soft_weighting": "unweighted",
+  "loss": "(1-alpha)*weighted_binary_CE + alpha*T^2*Bernoulli_KL(teacher||student)",
+  "augmentation": "horizontal_flip_only; paired cached teacher view",
+  "batch_norm": "frozen_non_fused",
+  "checkpoint_selection": "validation macro_f1; tie positive recall; retain head on cross-stage tie",
+  "initialization": "same ImageNet and classifier initialization for matched control and KD",
+  "b04_compat_sha256": "2822801a4f73ab90d6df8215d12fad03ea832cbc2300bdeb36d729d66ab66297",
+  "engine_sha256": "259eb201e72cc0479ad1db184716d9bad9a677ade44b7d5892de3b95f2c67aa9",
+  "tensorflow": "2.20.0",
+  "tf_keras": "2.20.1",
+  "precision": "float32",
+  "teacher_sources": {
+    "vgg16": {
+      "folder": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets/b04_ablation_runs_v1/mias/a3c269596e8c/vgg16/seed_42",
+      "checkpoint": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets/b04_ablation_runs_v1/mias/a3c269596e8c/vgg16/seed_42/finetune/best/ckpt-9",
+      "config_sha256": "bef16cd4d1b26d564858e6c37481c302bb8fc4d3df4daa41ed99e7d2a6cd2ff9",
+      "checkpoint_sha256": {
+        "ckpt-9.data-00000-of-00001": "ccebc54546abb9d9894ba488311bf679190950fcece24962e0a555d5f2177e9d",
+        "ckpt-9.index": "4c95ce4031fa01e99ebf418ad12e31f7f30e7bbac00841cb1a473c920de50c88"
+      },
+      "model": "vgg16",
+      "teacher_seed": 42,
+      "best_stage": "finetune",
+      "validation_predictions_sha256": "79690d38cfa974c6a2a6010044dc9f3d2466defc4e3c2745857a826bf7cf3641",
+      "b04_tensorflow": "2.20.0",
+      "b04_tf_keras": "2.20.1"
+    },
+    "densenet121": {
+      "folder": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets/b04_ablation_runs_v1/mias/a3c269596e8c/densenet121/seed_42",
+      "checkpoint": "/content/drive/MyDrive/Research/outputs/benchmark_4datasets/b04_ablation_runs_v1/mias/a3c269596e8c/densenet121/seed_42/finetune/best/ckpt-14",
+      "config_sha256": "9811cb7744688b133b49f0e0348186f3080d85810b18e2f54dead82c78f3632b",
+      "checkpoint_sha256": {
+        "ckpt-14.data-00000-of-00001": "7bf9875b1352c6c5c254f6a9617bc25ef42724ba4a62a59aefc4e7bb86effbc2",
+        "ckpt-14.index": "5c28952e7aafb43500f52c7aa729370e6ae1a67bbc5bed0ff9d356a94bd16ee7"
+      },
+      "model": "densenet121",
+      "teacher_seed": 42,
+      "best_stage": "finetune",
+      "validation_predictions_sha256": "83a4ffc18474a7084298b5a1c70536952c58e35e53c2024e526c522a4f038196",
+      "b04_tensorflow": "2.20.0",
+      "b04_tf_keras": "2.20.1"
+    }
+  },
+  "teacher_cache_sha256": {
+    "vgg16": "f93d196116010e0cd94bebc6e03c79bddd034eb4292c135c432754a713bf0ef6",
+    "densenet121": "5ffef82b902759d03d6f7e359d9a30f7037be44d57f6f06dedc6a3295b4552c4"
+  },
+  "inbreast_identity_status": "not_applicable",
+  "test_status": "B03 previously inspected; exclude test from B05 tuning"
+}
