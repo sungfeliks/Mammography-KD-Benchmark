@@ -1,0 +1,45 @@
+{
+  "version": "b07a_label_aware_v1",
+  "source_id": "453add0862207787",
+  "source_protocol_sha256": "82f254017fb3ead678f233a1c2cd630498760271ae0f974652e840338b4b2bdc",
+  "datasets": [
+    "cbis_ddsm",
+    "cmmd",
+    "inbreast",
+    "mias"
+  ],
+  "repeats": 20,
+  "subset_seed": 42,
+  "cap_per_class": 250,
+  "k_per_class": 21,
+  "sampler": "uniform feasible mixed-patient count pairs; random patients without replacement; random image of assigned label",
+  "scope": "train only; same frozen ResNet50 features and Pycol measures as B07",
+  "engine_sha256": "1a8fc0ca06b45e00417c6c388c7882d548a473a5f1e50d0ae40bc746edaefae6",
+  "sampler_sha256": "817c1fb3faf41f453d9eefeeb4eea3dae9b13a6328197c24a9304ebd1777c224",
+  "cache_hashes": {
+    "cbis_ddsm": {
+      "features_sha256": "a7870c65857468832c90ab40c58fb51492136987d9682c9a86b89d89b6b1117b",
+      "index_sha256": "4dc01fbc2c4a894f920d95b7516cbecd052bb8b7ed66918da0da537388f5d87e"
+    },
+    "cmmd": {
+      "features_sha256": "174e826e2783ee8435634258522d3596aa3adf4cad4b6f1f35189010549a6f7b",
+      "index_sha256": "9ddabe8dca71566cda64548f08b298ae70508562e50b5ebd63265630b2dac71c"
+    },
+    "inbreast": {
+      "features_sha256": "400c2feb5c52d6d2181067f60fd37689ce264eedbf33306cf7d22cc0dd686f7e",
+      "index_sha256": "4076afb13901731a0500fdf916ca1a2bfac92849db63d85c1a1ef649646b4abe"
+    },
+    "mias": {
+      "features_sha256": "0d1627a7da695f91eed1762475c84e01423294dd968a413942b414c2eda76ddc",
+      "index_sha256": "8c002f419dd8be25129c6408203c79ae8a0b16c449e25922c4bb60e72cb58154"
+    }
+  },
+  "environment": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.6.1",
+    "pycol-complexity": "1.0.4",
+    "python": "3.13.15"
+  }
+}

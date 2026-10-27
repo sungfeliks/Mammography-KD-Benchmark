@@ -1,0 +1,293 @@
+{
+  "version": "b07_pycol_v1",
+  "datasets": [
+    "cbis_ddsm",
+    "cmmd",
+    "inbreast",
+    "mias"
+  ],
+  "split": "train",
+  "backbone": "ResNet50",
+  "weights": "ImageNet",
+  "weights_sha256": "0bc980a428a36f420900bb40cf356286902c7c909755c5deef65ccacf39cf9fb",
+  "image_size": 512,
+  "pooling": "GAP",
+  "features": 2048,
+  "augmentation": "none",
+  "image_input": "B04 full_512 uint8 PNG, grayscale replicated to RGB",
+  "preprocess": "tf_keras.applications.resnet50.preprocess_input",
+  "scaling": "Pycol numeric HEOM: per-feature range within each evaluated cohort/subset",
+  "batch_size": 8,
+  "repeats": 20,
+  "subset_seed": 42,
+  "cap_per_class": 250,
+  "subset": "one random image per patient, then equal class counts; without replacement",
+  "pycol_source_sha256": "6214fd699bfeeeade69bdebd7c99b0b5ba88e5d426b466e421f4f89846f0c4d6",
+  "engine_sha256": "1a8fc0ca06b45e00417c6c388c7882d548a473a5f1e50d0ae40bc746edaefae6",
+  "provenance": {
+    "cbis_ddsm": {
+      "ready": {
+        "dataset": "cbis_ddsm",
+        "pipeline_version": "b04_full_512_film_box_v2",
+        "variant": "full_512",
+        "image_size": 512,
+        "cohort_sha256": "be36d646f825b9b3e5e32f709b5f173a2037d998ec1be2391d4164f7876eb56d",
+        "preprocessing_source_sha256": "1dcb7ddadfe67fbec607ee1d44b2fea4202003a23310fa2ef36170cf84577962",
+        "crop_parameters": {
+          "thumbnail": 512,
+          "foreground_threshold": 5,
+          "margin_fraction": 0.05,
+          "minimum_box_fraction": 0.15,
+          "maximum_outside_foreground": 0.03,
+          "film_detection_inset": 0.05
+        },
+        "source_archive": "/content/b04_selected_original_files/bfaf99d726cab22fdac4.zip",
+        "parent_b02_metadata": {
+          "dataset": "cbis_ddsm",
+          "pipeline_version": "benchmark_v1_224_minmax_letterbox",
+          "image_size": 224,
+          "cohort_sha256": "be36d646f825b9b3e5e32f709b5f173a2037d998ec1be2391d4164f7876eb56d",
+          "correction_policy": "b02c_conservative_quarantine_v1",
+          "input_manifest_sha256": "f5f772cf2c281c29ab80f4c92ff38c1026b205da4d055da15c33e9c9fcfdd45c",
+          "source_archive": "/content/drive/MyDrive/Research/datasets/cbis_ddsm_awsaf.zip",
+          "images": 3016,
+          "patient_groups": 1561,
+          "split_seed": 2026,
+          "split_policy": "retain original B02 assignments for retained patients; no resplit",
+          "label_policy": "no relabeling; quarantine unresolved conflicts",
+          "source_verification": "retained PNGs match original B02 pixel hashes; regenerated files also checked against source file hashes",
+          "duplicates_checked": "exact source decoded pixels and exact resized pixels; near duplicates not assessed",
+          "original_images": 3103,
+          "excluded_rows": 87,
+          "cache_build": {
+            "reused_pngs": 0,
+            "regenerated_pngs": 3016
+          },
+          "file_sha256": {
+            "all.csv": "e504efdccd1d09f7ede283e30cb6314eb446a43ba62d4d1b9cfef37b17596829",
+            "train.csv": "cc5a34cfe68866e255879a933f0dc4c77c7e8ab617f84a3a0b04fbc6c510419e",
+            "validation.csv": "098eb51f61cc4a516c68f2fecff39e0a93fe42dc81f74368e9e30ec7ed59d700",
+            "test.csv": "2466110ce0f05f41397ace55bbc5553da7e050851470a019f6b79aa579265130",
+            "images.zip": "c159a6d1b193db587b8e95544f31baf48995f5fb925cae9fb54c61647b7c097e",
+            "excluded.csv": "b095130542ca564bddd25a71ee7620247581166e11fefe1db91755edc49edda3",
+            "resolution_audit.csv": "e818f32d2b569043535766b130c8f15665a898d1a52585fb71d6fef0b8d30825"
+          }
+        },
+        "images": 3016,
+        "patient_groups": 1561,
+        "split_seed": 2026,
+        "grouping_caveat": "",
+        "split_policy": "exactly retained B02C sample IDs, labels and split assignments; test previously inspected in B03",
+        "duplicates_checked": "exact source and processed pixels; near duplicates not established",
+        "file_sha256": {
+          "all.csv": "fb4aceb4ca7288e89feec2643cad2b97208cbb70b1d68e2eee70a94edb7610f7",
+          "train.csv": "53738526a1e6a9f970eac958f29a97055886f9c49362452205eb7bb152b9e8ae",
+          "validation.csv": "77f20638cdd5faf63336a4e1ea201b3013a93f9f340ee48727801339c5d87951",
+          "test.csv": "5da365554dc282ba1ea095a7209a037c7758d81d75493314d127cf6798420619",
+          "images.zip": "f471558087bf212fadfd87cfc8ccf22fce724e950cda01a1218488be4163e19e",
+          "crop_audit.csv": "b55f7500d62278907e68ee148fe486b12a69c4970238b45cb084b316db3296b7"
+        }
+      },
+      "source_protocol_sha256": "070a5534a2a884c985d45f05d1eef4547905b253f8ab96b9d066ddec7f4efc2d",
+      "source_protocol_id": "7a4bf6d1e3f6",
+      "registry_sha256": "f13e9e43220242a2efd27d0458973851f84e03905203778fd9a51717914fb36d",
+      "ordered_train_ids_sha256": "be99bf426883efc40a9e6e3aac007b000f5e8e0ea9eaa1e1d8b5a57d3064a2fd"
+    },
+    "cmmd": {
+      "ready": {
+        "dataset": "cmmd",
+        "pipeline_version": "b04_full_512_film_box_v2",
+        "variant": "full_512",
+        "image_size": 512,
+        "cohort_sha256": "0c8d87e2ddf7dc5b625f3caade26458b9e672d71376e2840bdd5380124ceb68d",
+        "preprocessing_source_sha256": "1dcb7ddadfe67fbec607ee1d44b2fea4202003a23310fa2ef36170cf84577962",
+        "crop_parameters": {
+          "thumbnail": 512,
+          "foreground_threshold": 5,
+          "margin_fraction": 0.05,
+          "minimum_box_fraction": 0.15,
+          "maximum_outside_foreground": 0.03,
+          "film_detection_inset": 0.05
+        },
+        "source_archive": "/content/b04_selected_original_files/67bb8361701beb03eb28.zip",
+        "parent_b02_metadata": {
+          "dataset": "cmmd",
+          "pipeline_version": "benchmark_v1_224_minmax_letterbox",
+          "image_size": 224,
+          "cohort_sha256": "0c8d87e2ddf7dc5b625f3caade26458b9e672d71376e2840bdd5380124ceb68d",
+          "correction_policy": "b02c_conservative_quarantine_v1",
+          "input_manifest_sha256": "58e9f972e4529fde169d088c71f7e8e3170bb70544e53e8474d845483dce604e",
+          "source_archive": "/content/drive/MyDrive/Research/datasets/TheChineseMammographyDatabase.zip",
+          "images": 3734,
+          "patient_groups": 1771,
+          "split_seed": 2026,
+          "split_policy": "retain original B02 assignments for retained patients; no resplit",
+          "label_policy": "no relabeling; quarantine unresolved conflicts",
+          "source_verification": "retained PNGs match original B02 pixel hashes; regenerated files also checked against source file hashes",
+          "duplicates_checked": "exact source decoded pixels and exact resized pixels; near duplicates not assessed",
+          "original_images": 3744,
+          "excluded_rows": 10,
+          "cache_build": {
+            "reused_pngs": 0,
+            "regenerated_pngs": 3734
+          },
+          "file_sha256": {
+            "all.csv": "64e2d9660012e95b8cab3a679032f2089eba4405eaa08e4a7f654d6cf410a842",
+            "train.csv": "498e40e82ac521c6e404c651b401bce5aa13aaf4cd4971ebb43031b0e80999b6",
+            "validation.csv": "43ea2a9d4a178085bfb912447f57e2c392f7a25286ceb180b605a9e6f0e087f4",
+            "test.csv": "4f4a896a4d62f06e518f84ef31dccc85727ca851a3d0048fe8208e86163ffaff",
+            "images.zip": "e5f94499663982149b707aa5e21a1fab0f122823053d8a5eb408f503658b5e48",
+            "excluded.csv": "d575a586a93feee0312be8072ea6cf15876f3591adf4db4e6ae4f7eabdf110e6",
+            "resolution_audit.csv": "408c6c23a59c468dbe58d766ab71e1ea065691d1b42887036c6252ef22f311f0"
+          }
+        },
+        "images": 3734,
+        "patient_groups": 1771,
+        "split_seed": 2026,
+        "grouping_caveat": "",
+        "split_policy": "exactly retained B02C sample IDs, labels and split assignments; test previously inspected in B03",
+        "duplicates_checked": "exact source and processed pixels; near duplicates not established",
+        "file_sha256": {
+          "all.csv": "297878542939a8f28375d58cca652cb1e134c53e9ed454f59cb5d61cf409e860",
+          "train.csv": "84c81f2009a3bd64689325756f2692baad37235a20e3b0f2f3d56aeb377cf56b",
+          "validation.csv": "993585b39008385c137ba5817f44a6712bea3ba723b4a084ab1faab912a8e130",
+          "test.csv": "b46a15402ce51ac91feecc36f09b2bd2e33610085f9cd241855b7fafb29a5daf",
+          "images.zip": "f79eee17fd11387dfdb71dba29f59eb86a001a53aca8eb138693c4759ce87440",
+          "crop_audit.csv": "e646f1b7ea3e5cba06e5bcad1ae484a273cdd81e52bd299da7dca08d7c9be72f"
+        }
+      },
+      "source_protocol_sha256": "eb3102fdcfeee6abac3510cce02f95be137883ed0e02704a5d545a3e04a8b5bb",
+      "source_protocol_id": "f81ede1d807a",
+      "registry_sha256": "f13e9e43220242a2efd27d0458973851f84e03905203778fd9a51717914fb36d",
+      "ordered_train_ids_sha256": "d2ee60db0726512d3c7d2e29e07d54f5c4aaf32ab4003d87858e36b904876b70"
+    },
+    "inbreast": {
+      "ready": {
+        "dataset": "inbreast",
+        "pipeline_version": "b04_full_512_film_box_v2",
+        "variant": "full_512",
+        "image_size": 512,
+        "cohort_sha256": "52f7c7832e13e49c662ecfc56eed2d1dcd38f89b22b44d0abd1fa782b9e3d919",
+        "preprocessing_source_sha256": "1dcb7ddadfe67fbec607ee1d44b2fea4202003a23310fa2ef36170cf84577962",
+        "crop_parameters": {
+          "thumbnail": 512,
+          "foreground_threshold": 5,
+          "margin_fraction": 0.05,
+          "minimum_box_fraction": 0.15,
+          "maximum_outside_foreground": 0.03,
+          "film_detection_inset": 0.05
+        },
+        "source_archive": "/content/b04_selected_original_files/8b1a91a116184bf5af23.zip",
+        "parent_b02_metadata": {
+          "dataset": "inbreast",
+          "pipeline_version": "benchmark_v1_224_minmax_letterbox",
+          "image_size": 224,
+          "cohort_sha256": "52f7c7832e13e49c662ecfc56eed2d1dcd38f89b22b44d0abd1fa782b9e3d919",
+          "archive_index_sha256": "71b15b395c6efa6c12ea377b8dbdbe1018c585aee5967ac22e49389483b2f8eb",
+          "source_archive": "/content/drive/MyDrive/Research/datasets/inbreast_2012.zip",
+          "images": 344,
+          "patient_groups": 100,
+          "split_seed": 2026,
+          "grouping_caveat": "INbreast uses unverified filename pseudonym",
+          "duplicates_checked": "exact source decoded pixels and exact resized pixels; near duplicates not assessed",
+          "file_sha256": {
+            "all.csv": "0b97b5c2908f1ca6bfc70ab27fac6c3ae007d7f472d1347f2e3d170157c4f2b7",
+            "train.csv": "ea71e4ccadecd6dc23563002a8b7ce984147a8b672dcf3ea002221ad843992f6",
+            "validation.csv": "2ae102f5fced8f48f83edb8a2887e2b4c18bac950606b89ca9690994563d496a",
+            "test.csv": "9bb39ba323dc7ab9d6dff44b113658f3a89045cc4734230b8b5ff87035f2075a",
+            "images.zip": "f977be784c9c38f7a3976702cbe019b848ed682f864d5e8920ba80aed756afc9"
+          }
+        },
+        "images": 344,
+        "patient_groups": 100,
+        "split_seed": 2026,
+        "grouping_caveat": "INbreast uses unverified filename pseudonym",
+        "split_policy": "exactly retained B02C sample IDs, labels and split assignments; test previously inspected in B03",
+        "duplicates_checked": "exact source and processed pixels; near duplicates not established",
+        "file_sha256": {
+          "all.csv": "c3153582cef35003d500ef56861d052f3ea55b839036c80e6d3386cf52d6522c",
+          "train.csv": "2c791386fa5fc4eb89dca70cac6978f6210390b5b42ea95f66de66078df3f907",
+          "validation.csv": "f4c4d7d40fe2d1054c5107f1b2c02c303fdbbed5ac394a9bcaa537457184421a",
+          "test.csv": "631f3ae3427f2692f3bb611e560e0997e649064f55b7af5951ea4ed1c3f1ca2c",
+          "images.zip": "2914e5c7e9f6a85a7a68594f79448d9ee7f1e5735f5cc15099876568c1338dab",
+          "crop_audit.csv": "26958d876b29c71e3ee298a2b28a446bc2765f7a7e8efb9111f086c310819061"
+        }
+      },
+      "source_protocol_sha256": "f9ebf752f1445afc62506918149b9412cdd47d85682b8998a651dcd842e40031",
+      "source_protocol_id": "3f2fbdc2b913",
+      "registry_sha256": "f13e9e43220242a2efd27d0458973851f84e03905203778fd9a51717914fb36d",
+      "ordered_train_ids_sha256": "0a962e0029cc28db380895cd8c0c70b79fdd887d6cd095fa9a5e6421b49aeb10"
+    },
+    "mias": {
+      "ready": {
+        "dataset": "mias",
+        "pipeline_version": "b04_full_512_film_box_v2",
+        "variant": "full_512",
+        "image_size": 512,
+        "cohort_sha256": "8137c086bd82ee82b40d72dd084f9f3fa5e889abaf89fc73c4b073050cd1a5dc",
+        "preprocessing_source_sha256": "1dcb7ddadfe67fbec607ee1d44b2fea4202003a23310fa2ef36170cf84577962",
+        "crop_parameters": {
+          "thumbnail": 512,
+          "foreground_threshold": 5,
+          "margin_fraction": 0.05,
+          "minimum_box_fraction": 0.15,
+          "maximum_outside_foreground": 0.03,
+          "film_detection_inset": 0.05
+        },
+        "source_archive": "/content/b04_selected_original_files/84b726d6c83a01cd661a.zip",
+        "parent_b02_metadata": {
+          "dataset": "mias",
+          "pipeline_version": "benchmark_v1_224_minmax_letterbox",
+          "image_size": 224,
+          "cohort_sha256": "8137c086bd82ee82b40d72dd084f9f3fa5e889abaf89fc73c4b073050cd1a5dc",
+          "archive_index_sha256": "f7f8593d4419d4cf18e981d795bd3f91dea02bfb272e3aff51d9241bf16b4ca7",
+          "source_archive": "/content/drive/MyDrive/Research/datasets/miasdbv1.21.zip",
+          "images": 115,
+          "patient_groups": 108,
+          "split_seed": 2026,
+          "grouping_caveat": "",
+          "duplicates_checked": "exact source decoded pixels and exact resized pixels; near duplicates not assessed",
+          "file_sha256": {
+            "all.csv": "1810c39f0e1c8cdfe518fdb34f9601b70b3968ff867e6f7390ffcb4286afb507",
+            "train.csv": "c48571c567e92d8a0022064708886f75ce9a962b470ed2c3b75aeb335899b118",
+            "validation.csv": "9240edd2d16788f56525a91082e41ddce724cc1152c690fc47ac6897f863480d",
+            "test.csv": "1bc9e7e16b14763398dadc53a3a8777c4f6363838d07ddf18bfd47affc81bac9",
+            "images.zip": "21ba377cfec77143a5af04170e5a6ff7b0cce9e032700d914c7954dce237dafc"
+          }
+        },
+        "images": 115,
+        "patient_groups": 108,
+        "split_seed": 2026,
+        "grouping_caveat": "",
+        "split_policy": "exactly retained B02C sample IDs, labels and split assignments; test previously inspected in B03",
+        "duplicates_checked": "exact source and processed pixels; near duplicates not established",
+        "file_sha256": {
+          "all.csv": "726ed8fbe9752d08511397af25525156f521607873b7e4fdfa27f2c7e4da123b",
+          "train.csv": "37cc85949ccda0fc8651e4e211d738fcb66aa00d8705cbc52e0cb49428635df2",
+          "validation.csv": "4c021b0f31d89239654353d95945a12080b54e3ffd4af7615553c21cb803a9ec",
+          "test.csv": "96c6125e88eff13ee2f58e8d7aad5a2a0dd58af72851c1d57b201beefbf4636b",
+          "images.zip": "71217d268e632c293cb1f3bc540f55093f27cebf5724d35a61763d57af81e7a5",
+          "crop_audit.csv": "8a94a49e057ade0779982ba2e764486e27f11ba60d1ce0971e6e13fb5a7b5008"
+        }
+      },
+      "source_protocol_sha256": "be9d7ccecaf36dee0d6f2acc1530d207ec75aadeba795c37b5e6a5ad4c69b64b",
+      "source_protocol_id": "672f572d6c33",
+      "registry_sha256": "f13e9e43220242a2efd27d0458973851f84e03905203778fd9a51717914fb36d",
+      "ordered_train_ids_sha256": "f41f5dc121c07e9e679040c717470a47a19828c77553fdd055e6a5e141c72fa9"
+    }
+  },
+  "environment": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.6.1",
+    "pycol-complexity": "1.0.4",
+    "Pillow": "11.3.0",
+    "tensorflow": "2.20.0",
+    "tf_keras": "2.20.1",
+    "python": "3.13.15",
+    "gpu": [
+      "NVIDIA L4"
+    ]
+  }
+}
