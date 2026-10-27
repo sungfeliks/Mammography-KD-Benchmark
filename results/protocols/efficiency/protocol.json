@@ -1,0 +1,30 @@
+{
+  "version": "b08d_post_kd_efficiency_v1",
+  "campaign_label": "main",
+  "input_size": 512,
+  "precision": "float32",
+  "tf32": false,
+  "xla": false,
+  "deterministic": true,
+  "batches": [
+    1,
+    8
+  ],
+  "warmup": 30,
+  "trials": 5,
+  "iterations": 50,
+  "tensorflow": "2.20.0",
+  "tf_keras": "2.20.1",
+  "gpu_info": "NVIDIA L4, 23034 MiB, 580.82.07",
+  "builder_sha256": "98d31ba82bb859e191878f47b7f817504e9dc787b37ed0661f56cae5483e2d4d",
+  "worker_sha256": "eb3813f2579def95e4e248bbb5719883fe3b4fe4369244c836251594596866cb",
+  "orchestration_sha256": "02a5195a85bfeff417ff1e560bac86311deb0d906e5ae84b3e9bced8d97bd374",
+  "catalog_sha256": "e406f6a8b134d91ddf3536b7150811a04d9fb9fbaed244992517f8f289636ca9",
+  "verify_saved_test_files": true,
+  "measurement": "synthetic GPU-resident input; host forward plus output synchronization; excludes preprocessing and input transfer",
+  "restore": "reviewed checkpoint hashes; strict object restore; CPU export/reload parity; no fresh validation/test inference",
+  "memory": "TensorFlow peak active allocations after warmup, including resident model/input",
+  "macs": "Conv/Dense MACs only; not total FLOPs",
+  "training": false,
+  "test_inference": false
+}

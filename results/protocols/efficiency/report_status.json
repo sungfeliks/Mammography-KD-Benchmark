@@ -1,0 +1,11 @@
+{
+  "status": "complete_selected",
+  "completed_gpu_jobs": 96,
+  "completed_checkpoint_profiles": 48,
+  "selected_checkpoint_profiles": 48,
+  "all_catalog_checkpoint_profiles": 48,
+  "complete_all_48": true,
+  "missing_selected_run_ids": [],
+  "integrity_errors": [],
+  "note": "Each complete checkpoint profile requires batch 1 and 8. Metrics come from archived tests; no new test inference."
+}
