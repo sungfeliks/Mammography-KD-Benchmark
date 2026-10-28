@@ -1,0 +1,14 @@
+{
+  "python": "3.13.15",
+  "tensorflow": "2.20.0",
+  "tf_keras": "2.20.1",
+  "gpu": [
+    {
+      "compute_capability": [
+        8,
+        9
+      ],
+      "device_name": "NVIDIA L4"
+    }
+  ]
+}
